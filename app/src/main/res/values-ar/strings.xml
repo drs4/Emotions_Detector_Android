@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">كاشف العواطف</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="message_check_internet">تفقد الاتصال بالانترنت</string>
+    <string name="anger">الغضب</string>
+    <string name="contempt">ازدراء</string>
+    <string name="disgust">مقزز</string>
+    <string name="fear">خوف</string>
+    <string name="happiness">سعادة</string>
+    <string name="neutral">عادي</string>
+    <string name="sadness">حزن</string>
+    <string name="surprise">متفاجئ</string>
+    <string name="invalid_file">ملف غير صالح</string>
+    <string name="no_face">لم نجد أي وجه</string>
+    <string name="your_emotions">عواطفك</string>
+    <string name="emotions_result">النتائج</string>
+
+</resources>

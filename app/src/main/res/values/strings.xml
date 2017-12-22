@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Emotions Detector</string>
+    <string name="action_settings">Settings</string>
+    <string name="message_check_internet">Check your internet Connection</string>
+    <string name="anger">Anger</string>
+    <string name="contempt">Contempt</string>
+    <string name="disgust">Disgust</string>
+    <string name="fear">Fear</string>
+    <string name="happiness">Happiness</string>
+    <string name="neutral">Neutral</string>
+    <string name="sadness">Sadness</string>
+    <string name="surprise">Surprise</string>
+    <string name="invalid_file">Invalid File!</string>
+    <string name="no_face">Did not fine any Face!</string>
+    <string name="your_emotions">Your Emotions</string>
+    <string name="emotions_result">Emotions Result</string>
+
+
+</resources>
