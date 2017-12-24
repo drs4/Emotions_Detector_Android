@@ -1,7 +1,10 @@
 package com.s4u.emotionsdetector;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -9,10 +12,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -104,6 +109,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
                 startActivityForResult(intent, RESULT_LOAD_IMAGE);
             }
         });
+
+
+        getPermissions();
     }
 
     private void getEmotions(String path)
@@ -291,6 +299,39 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         pieChart.highlightValues(null);
 
         pieChart.invalidate();
+    }
+
+    public void getPermissions()
+    {
+        int PERMISSION_ALL = 5;
+        String[] PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.WAKE_LOCK,
+                Manifest.permission.INTERNET,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.VIBRATE,
+                Manifest.permission.SYSTEM_ALERT_WINDOW,
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.WRITE_GSERVICES,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.CALL_PHONE};
+
+        if(!hasPermissions(MainActivity.this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(MainActivity.this, PERMISSIONS, PERMISSION_ALL);
+        }
+
+    }
+
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 
